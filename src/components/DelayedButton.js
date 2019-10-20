@@ -5,7 +5,10 @@ const DelayedButton = ({onDelayedClick, delay}) => {
     return (
         <button 
             onClick={(event) => {
-                setTimeout(delay, onDelayedClick(event))
+                event.persist()
+                setTimeout(() => {
+                    onDelayedClick(event);
+                  }, delay)
             }}
         />
     )
